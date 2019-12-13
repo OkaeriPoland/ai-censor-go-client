@@ -9,22 +9,36 @@ package main
 
 import (
 	okaeric "github.com/okaeripoland/ai-censor-go-client"
-    "log"
+	"log"
 )
 
-func main(){
-    wiadomosc := "ale z niego !@#%"
-    // true dla logów podczas testów, false dla produkcji
-    okC, err := okaeric.CreateClient("TOKEN",true)
+func main() {
+	// dane uwierzytelniające
+	token := "TOKEN"
+
+	// tworzymy klienta (w większości przypadków należy go gdzieś zapisać)
+	censor, err := okaeric.CreateClient(token, true /* true dla logów podczas testów, false dla produkcji */)
 	if err != nil {
 		log.Printf("%v", err)
 		return
 	}
-	res, err := okC.Predict(wiadomosc)
+
+	// zapytanie o przewidywanie
+	phrase := "ale z niego !@#%"
+	res, err := censor.Predict(phrase)
 	if err != nil {
 		log.Printf("%v", err)
 		return
 	}
-    log.Printf("%v",res)
+	log.Printf("%v", res)
+
+	// czy jest to wulgarne?
+	swear := res.General.Swear
+	if swear {
+		log.Printf("Fraza '%s' zostala uznana za wulgarna.", phrase)
+	} else {
+		log.Printf("Fraza '%s' nie zostala uznana za wulgarna.", phrase)
+	}
 }
+
 ```
