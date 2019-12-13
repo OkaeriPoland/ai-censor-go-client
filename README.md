@@ -1,4 +1,4 @@
-# OK! AI.Censor Java Client
+# OK! AI.Censor Go Client
 
 Podstawowa implementacja biblioteki do Golang która odpytuje OK! AI.Censor
 
