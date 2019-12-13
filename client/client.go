@@ -1,4 +1,4 @@
-package okaeric
+package client
 
 import (
 	"bytes"
