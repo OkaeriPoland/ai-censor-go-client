@@ -42,3 +42,39 @@ func main() {
 }
 
 ```
+
+## Opis zwracanych własności
+
+#### PredictResponse
+
+| Własność  | Opis |
+| ------------- | ------------- |
+| General General | Sekcja ogólna odpowiedzi |
+| Details Details | Sekcja szczegółów odpowiedzi |
+| Elapsed Elapsed | Sekcja informacji dotyczących czasu przetwarzania |
+
+
+#### General
+
+| Własność  | Opis |
+| ------------- | ------------- |
+| Swear bool | Informacja o tym, czy wiadomość została uznana za wulgarną |
+| Breakdown string | Przetworzona wiadomość ułatwiająca ewentualne debugowanie błędnych wykryć, przydatna do wyświetlania dla administracji w logach |
+
+
+#### Details
+
+| Własność  | Opis |
+| ------------- | ------------- |
+| BasicContainsHit bool | Informacja o tym, czy wiadomość zawierała zakazane frazy |
+| ExactMatchHit bool | Informacja o tym, czy wiadomość była zablokowaną frazą (np. wyrażenie jd) |
+| AILabel string | Ocena ai (`ok` lub `swear`) |
+| AIProbability float64 | Wartość od `0` do `1` określająca prawdopodobieństwo dotyczące prawdziwości `aiLabel` |
+
+
+#### Elapsed 
+
+| Własność  | Opis |
+| ------------- | ------------- |
+| All float64 | Całkowity czas w milisekundach przez który zapytanie było obsługiwane wewnętrznie |
+| Processing float64 | Czas przez jaki zostały wykonane oceny wulgarności |
