@@ -60,6 +60,7 @@ func main() {
 | ------------- | ------------- |
 | Swear bool | Informacja o tym, czy wiadomość została uznana za wulgarną |
 | Breakdown string | Przetworzona wiadomość ułatwiająca ewentualne debugowanie błędnych wykryć, przydatna do wyświetlania dla administracji w logach |
+| Domains bool | Informacja o tym, czy wiadomość zawiera nazwy domenowe istniejące w systemie DNS |
 
 
 #### Details
@@ -70,6 +71,7 @@ func main() {
 | ExactMatchHit bool | Informacja o tym, czy wiadomość była zablokowaną frazą (np. wyrażenie jd) |
 | AILabel string | Ocena ai (`ok` lub `swear`) |
 | AIProbability float64 | Wartość od `0` do `1` określająca prawdopodobieństwo dotyczące prawdziwości `aiLabel` |
+| DomainsList []string | Lista domen obecnych w wiadomości |
 
 
 #### Elapsed 

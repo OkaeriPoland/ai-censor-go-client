@@ -86,10 +86,11 @@ type PredictResponse struct {
 }
 
 type Details struct {
-	BasicContainsHit bool    `json:"basic_contains_hit"`
-	ExactMatchHit    bool    `json:"exact_match_hit"`
-	AILabel          string  `json:"ai_label"`
-	AIProbability    float64 `json:"ai_probability"`
+	BasicContainsHit bool     `json:"basic_contains_hit"`
+	ExactMatchHit    bool     `json:"exact_match_hit"`
+	AILabel          string   `json:"ai_label"`
+	AIProbability    float64  `json:"ai_probability"`
+	DomainsList      []string `json:"domains_list"`
 }
 
 type Elapsed struct {
@@ -100,4 +101,5 @@ type Elapsed struct {
 type General struct {
 	Swear     bool   `json:"swear"`
 	Breakdown string `json:"breakdown"`
+	Domains   bool   `json:"domains"`
 }
